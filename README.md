@@ -58,7 +58,10 @@ track report --week
 To automatically track git commits:
 
 ```bash
-# Install in current repository
+# First, make sure track is installed (not just running via uv run)
+uv pip install -e .
+
+# Then install the hook in current repository
 track install-hook
 
 # Or install globally for all repositories
@@ -66,6 +69,8 @@ track install-hook --global
 ```
 
 The hook will automatically append commit information to your active session whenever you make a commit.
+
+**Note**: The git hook requires the `track` command to be available in your PATH. If you're using UV in development mode (`uv run track`), you'll need to install the package first with `uv pip install -e .` for the hook to work.
 
 ## Commands
 
